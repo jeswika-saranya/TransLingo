@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07152E">
+
+    <title>TransLingo — Break Language Barriers</title>
+    <meta name="description" content="Translate text between languages with TransLingo, a modern language translation tool.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <aside class="sidebar" id="sidebar">
+            <a href="#home" class="brand" aria-label="TransLingo home">
+
+    <span class="brand-mark" aria-hidden="true">
+        <img
+            src="assets/translingo-logo.png"
+            alt=""
+            class="brand-logo"
+        >
+    </span>
+
+    <span class="brand-copy">
+        <span class="brand-name">Trans<span>Lingo</span></span>
+        <span class="brand-tagline">Break Language Barriers</span>
+    </span>
+
+</a>
+
+            <nav class="navigation" aria-label="Main navigation">
+                <a href="#home" class="nav-item active" data-page="home">
+                    <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg>
+                    <span>Home</span>
+                </a>
+
+                <a href="#translate" class="nav-item" data-page="translate">
+                    <svg viewBox="0 0 24 24"><path d="M5 5h12M11 3v2c0 6-3 10-7 12M6 9c1 3 4 6 7 7M14 19l4-10 4 10M15.5 16h5"/></svg>
+                    <span>Translate</span>
+                </a>
+
+                <a href="#history" class="nav-item" data-page="history">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M3 5v5h5"/></svg>
+                    <span>History</span>
+                </a>
+
+                <a href="#favorites" class="nav-item" data-page="favorites">
+                    <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+                    <span>Favorites</span>
+                </a>
+
+                <a href="#settings" class="nav-item" data-page="settings">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.5 2.6-1.7-.6a8 8 0 0 1-1.8 1l-.3 1.8h-3l-.3-1.8a8 8 0 0 1-1.8-1l-1.7.6-1.5-2.6 1.4-1.1a8 8 0 0 1 0-2l-1.4-1.1 1.5-2.6 1.7.6a8 8 0 0 1 1.8-1l.3-1.8h3l.3 1.8a8 8 0 0 1 1.8 1l1.7-.6 1.5 2.6-1.4 1.1a8 8 0 0 1 0 2Z" transform="translate(-1 -1)"/></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="promo-card">
+                    <span class="promo-star" aria-hidden="true">✦</span>
+                    <div>
+                        <p>Better Conversations.</p>
+                        <p>A Bigger World.</p>
+                    </div>
+                    <span class="promo-arrow" aria-hidden="true">›</span>
+                </div>
+
+                <p class="sidebar-footer">TransLingo <span>·</span> Language without limits</p>
+            </div>
+        </aside>
+
+        <main class="main-content" id="home">
+            <header class="topbar">
+                <button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+                <div class="topbar-spacer"></div>
+
+                <div class="theme-control" aria-label="Theme selection">
+                    <button id="lightTheme" class="theme-option" aria-label="Light theme">☼</button>
+                    <button id="darkTheme" class="theme-option selected" aria-label="Dark theme">☾</button>
+                </div>
+
+                <div class="profile-avatar" aria-label="Guest profile">T</div>
+            </header>
+
+            <section class="hero">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR WORLD, CONNECTED</p>
+
+                <h1>Translate <span>the world</span></h1>
+
+                <p class="hero-subtitle">
+                    Fast, accurate and intelligent translation for everyone.
+                </p>
+            </section>
+
+            <section class="translator-card" id="translate" aria-label="Translation workspace">
+
+                <div class="language-bar">
+                    <div class="language-select-wrap">
+                        <span class="language-flag" id="sourceFlag" aria-hidden="true">🇮🇳</span>
+                        <select id="sourceLanguage" aria-label="Source language">
+                            <option value="hi" selected>Hindi</option>
+                            <option value="en">English</option>
+                            <option value="te">Telugu</option>
+                            <option value="ta">Tamil</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="bn">Bengali</option>
+                            <option value="mr">Marathi</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ar">Arabic</option>
+                            <option value="ru">Russian</option>
+                        </select>
+                        <span class="select-chevron">⌄</span>
+                    </div>
+
+                    <button id="swapLanguages" class="swap-button" aria-label="Swap languages" title="Swap languages">
+                        <svg viewBox="0 0 24 24"><path d="M4 8h15m-4-4 4 4-4 4M20 16H5m4 4-4-4 4-4"/></svg>
+                    </button>
+
+                    <div class="language-select-wrap">
+                        <span class="language-flag" id="targetFlag" aria-hidden="true">🇺🇸</span>
+                        <select id="targetLanguage" aria-label="Target language">
+                            <option value="en" selected>English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="te">Telugu</option>
+                            <option value="ta">Tamil</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="bn">Bengali</option>
+                            <option value="mr">Marathi</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ar">Arabic</option>
+                            <option value="ru">Russian</option>
+                        </select>
+                        <span class="select-chevron">⌄</span>
+                    </div>
+
+                </div>
+
+                <div class="translation-panels">
+                    <section class="text-panel input-panel">
+                        <textarea id="sourceText" maxlength="5000" placeholder="Type or paste your text here..." aria-label="Text to translate"></textarea>
+
+                        <div class="input-bottom">
+                            <div class="text-tools">
+                                <button class="tool-button" id="clearText" aria-label="Clear text" title="Clear text">
+                                    <svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3"/></svg>
+                                </button>
+                                <button class="tool-button" id="speakSource" aria-label="Listen to source text" title="Listen">
+                                    <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM15 9a5 5 0 0 1 0 6M17 5a10 10 0 0 1 0 14"/></svg>
+                                </button>
+                                <button class="tool-button" id="copySource" aria-label="Copy source text" title="Copy text">
+                                    <svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/></svg>
+                                </button>
+                            </div>
+
+                            <div class="input-actions">
+                                <span class="character-count" id="characterCount">0/5000</span>
+                                <button class="translate-button" id="translateButton">
+                                    <span class="button-label">Translate</span>
+                                    <span aria-hidden="true">→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="text-panel output-panel" aria-label="Translation result">
+                        <div id="translationOutput" class="translation-output" aria-live="polite">
+                            <div class="empty-state">
+                                <div class="empty-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 48 48"><path d="M24 4c2.2 10 6 13.8 16 16-10 2.2-13.8 6-16 16C21.8 26 18 22.2 8 20 18 17.8 21.8 14 24 4Z"/></svg>
+                                </div>
+                                <p>Your translation will appear here...</p>
+                            </div>
+                        </div>
+
+                        <div class="output-bottom">
+    <div class="text-tools">
+        <button class="tool-button" id="speakTranslation" aria-label="Listen to translation" title="Listen">
+            <svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM15 9a5 5 0 0 1 0 6M17 5a10 10 0 0 1 0 14"/></svg>
+        </button>
+
+        <button class="tool-button" id="copyTranslation" aria-label="Copy translation" title="Copy translation">
+            <svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h3"/></svg>
+        </button>
+
+        <button class="tool-button" id="favoriteTranslation" type="button" aria-label="Add translation to favorites" title="Add to Favorites">
+            ☆
+        </button>
+    </div>
+
+    <span id="outputStatus" class="output-status"></span>
+</div>
+                    </section>
+                </div>
+
+                <div class="workspace-footer">
+                    <span class="status-dot"></span>
+                    <span>Ready to translate</span>
+                    <span class="footer-divider">·</span>
+                    <span>Up to 5,000 characters per request</span>
+                </div>
+                <div class="copy-both-row">
+    <button
+        class="copy-both-button"
+        id="copyLanguages"
+        type="button"
+        title="Copy both source text and translation"
+    >
+        Copy Both Texts
+    </button>
+</div>
+            </section>
+
+            <section class="features-grid" aria-label="Features">
+                <article class="feature-card">
+                    <div class="feature-icon icon-purple">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M4.5 6.5h15M4.5 17.5h15"/></svg>
+                    </div>
+                    <h2>Multiple Languages</h2>
+                    <p>Explore translations across languages.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-teal">
+                        <svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg>
+                    </div>
+                    <h2>Fast &amp; Convenient</h2>
+                    <p>Translate text in a few clicks.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-pink">
+                        <svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0-4 4 4 4 0 0 0 4 4h1v2a3 3 0 0 0 6 0v-2h1a4 4 0 0 0 4-4 4 4 0 0 0-4-4V7a4 4 0 0 0-4-4Z"/><path d="M8 11h1m6 0h1M9 15h6"/></svg>
+                    </div>
+                    <h2>Translation API</h2>
+                    <p>Connected to an external translation service.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon icon-orange">
+                        <svg viewBox="0 0 24 24"><path d="m12 3 8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="m8.5 12 2.3 2.3 4.7-5"/></svg>
+                    </div>
+                    <h2>Simple &amp; Accessible</h2>
+                    <p>Clear controls and readable results.</p>
+                </article>
+            </section>
+
+            <!-- History Page -->
+<section class="content-page" id="historyPage" hidden>
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow history-eyebrow">
+    <span class="eyebrow-dot"></span>
+    YOUR TRANSLATION LIBRARY
+</p>
+            <h1>Translation <span>History</span></h1>
+            <p class="hero-subtitle">
+                Find, reuse, and manage your previous translations.
+            </p>
+        </div>
+
+        <button
+            class="page-action-button"
+            id="clearHistoryButton"
+            type="button"
+        >
+            Clear History
+        </button>
+    </div>
+
+    <div class="history-summary">
+        <span>Recent translations</span>
+        <span id="historyCount">0 translations</span>
+    </div>
+
+    <div id="historyList" class="history-list"></div>
+</section>
+
+    <!-- Favorites Page -->
+<section class="content-page" id="favoritesPage" hidden>
+    <div class="page-heading">
+        <div>
+            <h1>My <span>Favorites</span></h1>
+            <p class="hero-subtitle">
+                Keep your most useful translations close at hand.
+            </p>
+        </div>
+    </div>
+
+    <div class="history-summary">
+        <span>Saved translations</span>
+        <span id="favoritesCount">0 favorites</span>
+    </div>
+
+    <div id="favoritesList" class="history-list"></div>
+</section>
+
+<!-- Settings Page -->
+<section class="content-page" id="settingsPage" hidden>
+
+    <div class="page-heading">
+        <div>
+            <h1>App <span>Settings</span></h1>
+            <p class="hero-subtitle">
+                Customize your TransLingo experience.
+            </p>
+        </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="settings-card">
+        <h2>Appearance</h2>
+        <p>Choose how TransLingo looks.</p>
+
+        <div class="settings-options">
+            <button type="button" id="settingsLightTheme">
+                ☀️ Light Theme
+            </button>
+
+            <button type="button" id="settingsDarkTheme">
+                🌙 Dark Theme
+            </button>
+        </div>
+    </div>
+
+    <!-- Default Languages -->
+    <div class="settings-card">
+        <h2>Default Languages</h2>
+        <p>Choose the languages selected when you open TransLingo.</p>
+
+        <div class="settings-language-row">
+            <label for="defaultSourceLanguage">Translate from</label>
+            <select id="defaultSourceLanguage">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="te">Telugu</option>
+                <option value="ta">Tamil</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="bn">Bengali</option>
+                <option value="mr">Marathi</option>
+                <option value="gu">Gujarati</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="zh">Chinese</option>
+                <option value="ar">Arabic</option>
+                <option value="ru">Russian</option>
+            </select>
+        </div>
+
+        <div class="settings-language-row">
+            <label for="defaultTargetLanguage">Translate to</label>
+            <select id="defaultTargetLanguage">
+                <option value="en">English</option>
+                <option value="hi" selected>Hindi</option>
+                <option value="te">Telugu</option>
+                <option value="ta">Tamil</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="bn">Bengali</option>
+                <option value="mr">Marathi</option>
+                <option value="gu">Gujarati</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="zh">Chinese</option>
+                <option value="ar">Arabic</option>
+                <option value="ru">Russian</option>
+            </select>
+        </div>
+
+        <button type="button" id="saveLanguageSettings">
+            Save Language Preferences
+        </button>
+    </div>
+
+    <div class="settings-card">
+        <h2>Data Management</h2>
+        <p>Manage your locally saved translations.</p>
+
+        <div class="settings-options">
+            <button type="button" id="clearSavedHistory">
+                Clear Translation History
+            </button>
+
+            <button type="button" id="clearSavedFavorites">
+                Clear All Favorites
+            </button>
+        </div>
+    </div>
+
+</section>
+
+            <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        </main>
+    </div>
+</body>
+</html>
